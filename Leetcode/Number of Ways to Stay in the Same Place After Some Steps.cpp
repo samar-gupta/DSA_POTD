@@ -36,6 +36,5 @@ public:
         n = arrLen;
         memset(t, -1, sizeof(t));
         return solve(0, steps);
-
     }
 };
