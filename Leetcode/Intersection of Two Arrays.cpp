@@ -155,7 +155,7 @@ public:
 
 
 //Approach-6 (Sorting and two-pointers)
-//T.C : O(n + m)
+//T.C : O(n + m) + O(mlogm) + O(nlogn)
 //S.C : O(1)
 class Solution {
 public:
