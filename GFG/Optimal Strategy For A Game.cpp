@@ -1,3 +1,5 @@
+//Approach :  we have two options at each player chance either take last or first . now in game type problem to maximise our score we will take maximum of two option on our chance and minimum of two option on other chance. and after all we store results in dp to avoid tle and return the answer.
+
 //Function to find the maximum possible amount of money we can win.
 class Solution{
     public:
