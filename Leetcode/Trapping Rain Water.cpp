@@ -39,6 +39,8 @@ public:
 
 
 //Approach-2 : (2-Pointer)
+//T.C : O(n)
+//S.C : O(1)
 //If two walls are there and we want want to fill water within that wall 
 //we just have to fill the water till min of two wall, if it exceeds the value ,it will overflow.
 //So, we can set 2 pointers left_max, right_max and check which side is greater,
