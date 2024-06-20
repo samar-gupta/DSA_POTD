@@ -34,7 +34,7 @@ public:
         sort(begin(position), end(position));
 
         int minForce = 1;
-        int maxForce = position[n-1] - position[0]; //better value (comment me batao)
+        int maxForce = position[n-1] - position[0]; 
 
         int result = 0;
         while(minForce <= maxForce) {
