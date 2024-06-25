@@ -19,7 +19,7 @@ public:
 
         root->val = sum;
 
-        solve(root->left, sum); //Covergin the left
+        solve(root->left, sum); //Covering the left
     }
 
     TreeNode* bstToGst(TreeNode* root) {
