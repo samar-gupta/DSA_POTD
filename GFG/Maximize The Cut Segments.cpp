@@ -1,24 +1,26 @@
 class Solution
 {
     public:
-     int solve(int n, int x, int y, int z,int sum,vector<int>& dp){
-        if(sum==n) return 0;
-        if(dp[sum]!=-1) return dp[sum];
-        int one=INT_MIN,  two=INT_MIN,  three=INT_MIN;
-        one=solve(n,x,y,z,sum+x,dp);
-        two=solve(n,x,y,z,sum+y,dp);
-        three=solve(n,x,y,z,sum+z,dp);
+    int solve(int n, int x, int y, int z, vector<int>&dp){
         
-        return dp[sum]=1+max(one,max(two,three));
+        if(n<0) return INT_MIN;
+        if(n==0) return 0;
         
+        if(dp[n]!=-1) return dp[n];
+        
+        
+        int cl1=solve(n-x, x, y, z, dp);
+        int cl2=solve(n-y, x, y, z, dp);
+        int cl3=solve(n-z, x, y, z, dp);
+        
+        return dp[n]=1+max(cl1, max(cl2, cl3));
     }
-    
+
+    //Function to find the maximum number of cuts.
     int maximizeTheCuts(int n, int x, int y, int z)
     {
-      
-        vector<int> dp(n+1,-1);
-        int ans=solve(n,x,y,z,0,dp);
-        if(ans<0) return 0;
-        return ans;
+        //Your code here
+        vector<int>dp(n+1, -1);
+        return max(0, solve(n, x, y, z, dp));
     }
 };
