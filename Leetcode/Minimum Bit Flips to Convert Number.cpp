@@ -88,6 +88,6 @@ public:
         //XOR can easily help with that
         
         int XOR = start ^ goal;
-        return_builtin_popcount(XOR); //simply count bits
+        return __builtin_popcount(XOR); //simply count bits
     }
 };
