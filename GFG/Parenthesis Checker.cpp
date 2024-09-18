@@ -1,3 +1,4 @@
+//Approach-1 :
 class Solution
 {
     public:
@@ -22,6 +23,39 @@ class Solution
             else return false;
         }
         if(!st.empty()) return false;
+        return true;
+    }
+
+};
+
+
+//Approach-2 :
+class Solution
+{
+    public:
+    //Function to check if brackets are balanced or not.
+    bool ispar(string x)
+    {
+        // Your code here
+        stack<char> stack;
+        unordered_map<char, char> brackets = {{')', '('}, 
+                                              {'}', '{'}, 
+                                              {']', '['}};
+                                              
+        for(char ch: x) {
+            if(ch == '(' || ch== '{' || ch == '['){
+                stack.push(ch);
+            }else if(!stack.empty() && brackets [ch] == stack.top()){
+                stack.pop();
+            }else{
+                return false;
+            }
+        }
+        
+        if(!stack.empty()){
+            return false;
+        }
+        
         return true;
     }
 
