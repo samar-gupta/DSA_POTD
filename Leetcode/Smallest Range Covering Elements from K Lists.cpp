@@ -30,7 +30,7 @@ public:
                 maxEl = max(maxEl, element);
             }
 
-            //raneg (minEl, maxEl)
+            //range (minEl, maxEl)
             if(maxEl - minEl < resultRange[1] - resultRange[0]) {
                 resultRange[0] = minEl;
                 resultRange[1] = maxEl;
@@ -82,7 +82,7 @@ public:
                 resultRange[1] = maxEl;
             }
 
-            //decrease the rangen fro minimums ide
+            //decrease the range for minimum idx
             if(idx+1 < nums[listIdx].size()) {
                 int nextElement = nums[listIdx][idx+1];
                 pq.push({nextElement, listIdx, idx+1});
