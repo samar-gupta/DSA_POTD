@@ -25,8 +25,8 @@ public:
         //calculate LDS
         for(int i = n-1; i >= 0; i--) {
             for(int j = i+1; j < n; j++) {
-                if (nums [1] > nums[j]) {
-                    LDS [i] = max(LDS [i], LDS [j] + 1);
+                if (nums[i] > nums[j]) {
+                    LDS[i] = max(LDS[i], LDS[j] + 1);
                 }
             }
         }
