@@ -1,3 +1,4 @@
+//Approach-1 : 
 class Solution {
   public:
     // Function to find the sum of contiguous subarray with maximum sum.
@@ -13,5 +14,24 @@ class Solution {
          }
          
          return ans;
+    }
+};
+
+
+//Approach-2 : 
+class Solution {
+  public:
+    // Function to find the sum of contiguous subarray with maximum sum.
+    int maxSubarraySum(vector<int> &arr) {
+        // code here...
+        int maxSum = arr[0];
+        int currSum = arr[0];
+        
+        for (int i = 1; i < arr.size(); i++) {
+            currSum = max(currSum + arr[i], arr[i]);
+            maxSum = max(currSum, maxSum);
+        }
+        
+        return maxSum;
     }
 };
