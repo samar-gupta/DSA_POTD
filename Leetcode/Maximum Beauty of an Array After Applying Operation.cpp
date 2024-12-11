@@ -14,7 +14,7 @@ public:
         sort(ranges.begin(), ranges.end());
 
         int maxBeauty = 0;
-        deque<int> deq; //You can use queue as well - See my video above
+        deque<int> deq; //You can use queue as well
 
         //NOTE : The intervals have equal size and hence this approach works like a charm.
         //If the intervals didn't have equal size, then it will fail in some cases.
@@ -43,7 +43,7 @@ public:
         int maxBeauty = 0;
         //Proof in the video for nums[i] + 2*k
         for (int i = 0; i < nums.size(); i++) {
-            auto upperBound = upper_bound(nums.begin(), nums.end(), nums[i] + 2 * k); //You can write your own binarySearch - See my video above
+            auto upperBound = upper_bound(nums.begin(), nums.end(), nums[i] + 2 * k); //You can write your own binarySearch 
 
             maxBeauty = max(maxBeauty, int(upperBound - nums.begin()) - i);
         }
