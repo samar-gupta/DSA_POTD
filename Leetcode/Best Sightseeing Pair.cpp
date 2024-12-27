@@ -24,7 +24,7 @@ public:
 };
 
 
-//Approach-2 (Using extra space)
+//Approach-2 : (Using extra space)
 //T.C : O(n)
 //S.C : O(n)
 class Solution {
@@ -54,7 +54,30 @@ public:
 };
 
 
-//Approach-3 (Using O(1) space)
+//Approach-3 : (Using max-heap)
+//T.C : O(n)
+//S.C : O(n)
+class Solution {
+public:
+    int maxScoreSightseeingPair(vector<int>& values) {
+        int n = values.size(); 
+        
+        priority_queue<int> pq;
+        pq.push(values[0]);
+        
+        int result = INT_MIN;
+        
+        for(int j = 1; j < n; j++) {
+            result = max(result, pq.top()+values[j]-j);
+            pq.push(values[j] + j);
+        }
+        
+        return result;
+    }
+};
+
+
+//Approach-4 : (Using O(1) space)
 //T.C : O(n)
 //S.C : O(1)
 class Solution {
