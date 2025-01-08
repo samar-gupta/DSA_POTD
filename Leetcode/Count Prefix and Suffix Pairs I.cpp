@@ -9,7 +9,7 @@ public:
     bool isPrefixAndSuffix(string &check, string &s) {
         int n = check.length();
 
-        //You can use fine() function as well
+        //We can use find() function as well
         string s1 = s.substr(0, n);
         string s2 = s.substr(s.length() - n, n);
         
