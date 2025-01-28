@@ -14,7 +14,7 @@ public:
 
         for(int i = 0; i < n; i++) {
             parent[i] = i;
-            size[i] = 0; //fis count ios 0 initially for each
+            size[i] = 0; //fir count is 0 initially for each
         }
     }
 
