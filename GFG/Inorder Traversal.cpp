@@ -42,3 +42,36 @@ class Solution {
         return res;
     }
 };
+
+
+//Approach-2 ; 
+class Solution {
+  public:
+    // Function to return a list containing the inorder traversal of the tree.
+    vector<int> inOrder(Node* root) {
+        // Your code here
+        vector<int> ans;
+          stack<Node*> st;
+          
+          while (root != nullptr) {
+              st.push(root);
+              root = root->left;
+          }
+          
+          while (!st.empty()) {
+              Node* tmp = st.top();
+              st.pop();
+              ans.push_back(tmp->data);
+              
+              if (tmp->right != nullptr) {
+                  tmp = tmp->right;
+                  while (tmp != nullptr) {
+                      st.push(tmp);
+                      tmp = tmp->left;
+                  }
+              }
+          }
+          
+          return ans;
+    }
+};
