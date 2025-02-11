@@ -1,3 +1,23 @@
+//(updated)
+class Solution {
+  public:
+    bool isValidBST(Node *root,int mini,int maxi) {
+        if(root==NULL)
+            return true;
+        if(root->data > maxi || root->data < mini)
+            return false;
+        return (isValidBST(root->left,mini,root->data) && isValidBST(root->right,root->data,maxi));
+    }
+    
+    // Function to check whether a Binary Tree is BST or not.
+    bool isBST(Node* root) {
+        // Your code here
+        return isValidBST(root,INT_MIN,INT_MAX);
+    }
+};
+
+
+//(old version)
 class Solution {
   public:
     // Function to check whether a Binary Tree is BST or not.
