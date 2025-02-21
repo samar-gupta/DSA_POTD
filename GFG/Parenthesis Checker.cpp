@@ -1,62 +1,35 @@
-//Approach-1 :
-class Solution
-{
-    public:
-    //Function to check if brackets are balanced or not.
-    bool ispar(string x)
-    {
-        // Your code here
-        stack<char>st;
-        
-        for(int i=0;i<x.size();i++){
-            
-            if(x[i]=='(') st.push(x[i]);
-            else if(x[i]=='{') st.push(x[i]);
-            else if(x[i]=='[') st.push(x[i]);
-            
-            else if((x[i]==')' ||  x[i]=='}' || x[i]==']') && st.empty()) return false;
-            
-            else if(x[i]==')' and st.top()=='(') st.pop();
-            else if(x[i]=='}' and st.top()=='{') st.pop();
-            else if(x[i]==']' and st.top()=='[') st.pop();
-            
-            else return false;
-        }
-        if(!st.empty()) return false;
-        return true;
-    }
-
-};
-
-
-//Approach-2 :
-class Solution
-{
-    public:
-    //Function to check if brackets are balanced or not.
-    bool ispar(string x)
-    {
-        // Your code here
-        stack<char> stack;
-        unordered_map<char, char> brackets = {{')', '('}, 
-                                              {'}', '{'}, 
-                                              {']', '['}};
-                                              
-        for(char ch: x) {
-            if(ch == '(' || ch== '{' || ch == '['){
-                stack.push(ch);
-            }else if(!stack.empty() && brackets [ch] == stack.top()){
-                stack.pop();
-            }else{
-                return false;
+class Solution {
+  public:
+    bool isBalanced(string& s) {
+        // code here
+        // Declare a stack to store the opening brackets
+        stack<char> st;
+        for (int i = 0; i < s.length(); i++) {
+  
+            // Check if the character is an opening bracket
+            if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
+                st.push(s[i]);
+            }
+  
+            else {
+  
+                // If it's a closing bracket, check if the stack is non-empty
+                // and if the top of the stack is a matching opening bracket
+                if (!st.empty() && ((st.top() == '(' && s[i] == ')') ||
+                                    (st.top() == '{' && s[i] == '}') ||
+                                    (st.top() == '[' && s[i] == ']'))) {
+  
+                      // Pop the matching opening bracket
+                    st.pop();
+                } else {
+  
+                    // Unmatched closing bracket
+                    return false;
+                }
             }
         }
-        
-        if(!stack.empty()){
-            return false;
-        }
-        
-        return true;
+  
+        // If stack is empty, return true (balanced), otherwise false
+        return st.empty();
     }
-
 };
