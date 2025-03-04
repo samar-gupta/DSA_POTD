@@ -2,6 +2,7 @@ class Solution {
   public:
     int lis(vector<int>& a) {
         // code here
+        int n = a.size();
         vector<int> ans;
         ans.push_back(a[0]);
         for(int i=1;i<n;i++){
