@@ -1,6 +1,6 @@
 class Solution {
   public:
-    int lis(vector<int>& arr) {
+    int lis(vector<int>& a) {
         // code here
         vector<int> ans;
         ans.push_back(a[0]);
