@@ -1,6 +1,6 @@
 class Solution {
   public:
-    bool dfs(int ind, int N, int target, int arr[], vector<vector<int>>&dp) {
+    bool dfs(int ind, int N, int target, vector<int>& arr, vector<vector<int>>&dp) {
         if(ind>=N){
             if(target==0) return 1;
             return 0;
@@ -19,6 +19,7 @@ class Solution {
     
     bool equalPartition(vector<int>& arr) {
         // code here
+        int N = arr.size();
         int sum = 0;
         for(int i=0; i<N; i++) sum+=arr[i];
         if(sum%2!=0) return 0;
