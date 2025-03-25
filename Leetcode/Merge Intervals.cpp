@@ -1,3 +1,6 @@
+//Company Tags  : Amazon, Google, Nutanix
+//Leetcode Link : https://leetcode.com/problems/merge-intervals/
+
 //Approach : (Using sorting)
 //T.C : O(nlogn)
 //S.C : O(n)
