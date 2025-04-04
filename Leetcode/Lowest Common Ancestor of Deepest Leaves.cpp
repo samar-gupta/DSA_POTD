@@ -1,31 +1,72 @@
 //Leetcode Link : https://leetcode.com/classic/problems/lowest-common-ancestor-of-deepest-leaves/description/
-
+//Same Question on Leetcode : https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/
+   
+//Approach-1 (Using 2 Pass Solution and LCA code)
+//T.C : O(2*n) ~= O(n)
+//S.C : O(maxDepth) System stack space
 class Solution {
 public:
-    map<TreeNode*, int> heightNode;
-    int max_h = 0;
-    TreeNode* lowestCommonAncestor(TreeNode* root) {
-        if(!root || heightNode[root] == max_h)
+    unordered_map<int, int> mp;
+    int maxD = 0;
+
+    TreeNode* LCA(TreeNode* root) {
+        if(root == NULL || mp[root->val] == maxD) {
             return root;
-        TreeNode* l = lowestCommonAncestor(root->left);
-        TreeNode* r = lowestCommonAncestor(root->right);
-        if(l && r)
+        }
+
+        TreeNode* l = LCA(root->left);
+        TreeNode* r = LCA(root->right);
+
+        if(l && r) {
             return root;
-        return l?l:r;
+        }
+
+        return l != NULL ? l : r;
     }
-    
-    void collectLeaves(TreeNode* root, int h) {
-        if(!root)
+
+    void depth(TreeNode* root, int d) {
+        if(!root) {
             return;
-        max_h = max(max_h, h);
-        heightNode[root] = h;
-        
-        collectLeaves(root->left, h+1);
-        collectLeaves(root->right, h+1);
+        }
+
+        maxD = max(maxD, d);
+        mp[root->val] = d;
+        depth(root->left, d+1);
+        depth(root->right, d+1);
     }
+    //T.C : O(n)
+    //S.C : O(maxD) system recursion stack space
     TreeNode* lcaDeepestLeaves(TreeNode* root) {
-        int h = 0;
-        collectLeaves(root, h);        
-        return lowestCommonAncestor(root);
+        depth(root, 0);
+
+        return LCA(root);
+    }
+};
+
+
+//Approach-2 (Using 1 Pass Solution)
+//T.C : O(n)
+//S.C : O(maxDepth) System stack space
+class Solution {
+public:
+    pair<int, TreeNode*> solve(TreeNode* root) {
+        if(root == NULL) {
+            return {0, NULL};
+        }
+
+        auto l = solve(root->left);
+        auto r = solve(root->right);
+
+        if(l.first == r.first) {
+            return {l.first+1, root};
+        } else if(l.first > r.first) {
+            return {l.first+1, l.second};
+        } else {
+            return {r.first+1, r.second};
+        }
+    }
+
+    TreeNode* lcaDeepestLeaves(TreeNode* root) {
+        return solve(root).second;   
     }
 };
