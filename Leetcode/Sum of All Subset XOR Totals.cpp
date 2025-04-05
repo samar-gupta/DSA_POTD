@@ -39,7 +39,6 @@ public:
 };
 
 
-
 //Approach-2 (Using optimal backtracking)
 //T.C : O(2^n)
 //S.C : O(n)
@@ -61,7 +60,6 @@ public:
         return solve(0, nums, 0);
     }
 };
-
 
 
 //Approach-3 (Observing pattern)
