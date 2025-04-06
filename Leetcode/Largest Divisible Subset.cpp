@@ -39,9 +39,6 @@ public:
 };
 
 
-
-
-
 //Approach-2 (Using Bottom Up same as LIS) - Just need to keep track of how to print LIS
 //T.C : O(n^2)
 //S.C : O(n)
@@ -77,7 +74,7 @@ public:
         }
 
         vector<int> result;
-        while(last_chosen_index != -1) {                    //last_chosen_index >= 0
+        while(last_chosen_index != -1) {                    
             result.push_back(nums[last_chosen_index]);
             last_chosen_index = prev_idx[last_chosen_index];
         }
