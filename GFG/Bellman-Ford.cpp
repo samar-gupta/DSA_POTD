@@ -1,6 +1,6 @@
 class Solution {
   public:
-    vector<int> bellmanFord(int n, vector<vector<int>>& edges, int src) {
+    vector<int> bellmanFord(int n, vector<vector<int>>& edges, int S) {
         // Code here
         vector<int>ans(n,1e8);
         ans[S]=0;
