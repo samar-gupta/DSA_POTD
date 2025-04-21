@@ -1,19 +1,17 @@
 class Solution {
   public:
-
-    // Note that the size of the array is n-1
-    int missingNumber(int n, vector<int>& arr) {
-
-        // Your code goes here
-        // Calculate the sum of the first n natural numbers
-        int totalSum = n * (n + 1) / 2;
-        
-        // Calculate the sum of elements in the array
-        int arrSum = 0;
-        for (int num : arr) {
-            arrSum += num;
+    int missingNum(vector<int>& arr) {
+        // code here
+        int sum = 0;     //arrSum
+        int tsum = 0;    //totalSum
+        for(int i = 0 ; i<arr.size() ; i++)
+        {
+            sum += arr[i];
         }
-        // The missing number is the difference between the total sum and the array sum
-        return totalSum - arrSum; 
+        for(int i = 1 ; i<=(arr.size()+1) ; i++)
+        {
+            tsum += i;
+        }
+        return (tsum-sum);   //missing = totalSum - arrSum
     }
 };
