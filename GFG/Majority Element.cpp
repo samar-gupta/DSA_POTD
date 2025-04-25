@@ -1,3 +1,6 @@
+//Approach : Boyer-Moore Voting Algorithm
+//T.C : O(n)
+//S.C : O(1)
 class Solution {
   public:
     int majorityElement(vector<int>& arr) {
