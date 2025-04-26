@@ -2,10 +2,37 @@
 Leetcode Link  : https://leetcode.com/problems/count-subarrays-with-fixed-bounds/
 
 //Approach-1 (Brute Force)
+//T.C : O(n^2)
+//S.C : O(1)
 //Find all subarrays and check if min is minK and max is maxK
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int minK, int maxK) {
+        int n = nums.size();
+        long long count = 0;
+
+        for (int start = 0; start < n; ++start) {
+            int currentMin = nums[start];
+            int currentMax = nums[start];
+
+            for (int end = start; end < n; ++end) {
+                currentMin = min(currentMin, nums[end]);
+                currentMax = max(currentMax, nums[end]);
+
+                if (currentMin == minK && currentMax == maxK) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+};
 
 
-//Approach-2 (Optimal O(n)) - Sliding Window
+//Approach-2 : Sliding Window
+//T.C : O(n)
+//S.C : O(1)
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums, int minK, int maxK) {
