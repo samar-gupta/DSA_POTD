@@ -13,7 +13,6 @@ public:
 };
   
 
-
 //Approach-2 (Using counting)
 //T.C : O(n+n)
 //S.C : O(1)
@@ -49,7 +48,6 @@ public:
         }
     }
 };
-
 
 
 //Approach-3 (Follow up) : O(n)
