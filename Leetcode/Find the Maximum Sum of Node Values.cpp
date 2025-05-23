@@ -40,8 +40,7 @@ public:
 class Solution {
 public:
     typedef long long ll;
-    ll maximumValueSum(vector<int>& nums, int k,
-                              vector<vector<int>>& edges) {
+    ll maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
         vector<int> fayda;
         ll normalSum = 0;
         
