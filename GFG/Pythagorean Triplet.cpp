@@ -1,3 +1,24 @@
+//updated
+class Solution {
+  public:
+    bool pythagoreanTriplet(vector<int>& a) {
+        // code here
+        int n = a.size();
+        unordered_set<int> mp;
+        for(int i=0;i<n;i++) 
+            mp.insert(a[i]*a[i]);
+        for(auto i:mp) {
+            for(auto j : mp) {
+                if(mp.find(i+j)!=mp.end())
+                    return true;
+            }   
+        }      
+        return false;
+    }
+};
+
+
+//old
 //Approach - 1
 class Solution{
 public:
