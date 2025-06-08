@@ -6,7 +6,6 @@
 //S.C : O(d) - where d is the number of digits in n i.e. log10(n)
 class Solution {
 public:
-
     void solve(int curr, int n, vector<int>& result) {
         if(curr > n)
             return;
