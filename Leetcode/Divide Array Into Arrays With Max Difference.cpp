@@ -1,5 +1,5 @@
-//Company Tags     : Google
-//Leetcode Link    : https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/
+//Company Tags  : Google
+//Leetcode Link : https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/
 
 //T.C : O(nlogn)
 //S.C : O(1)
@@ -11,7 +11,7 @@ public:
         
         sort(begin(nums), end(nums));
         
-        for(int i = 0; i < n; i += 3) {          //i <= n-3 
+        for(int i = 0; i <= n-3; i += 3) {
             if(nums[i+2] - nums[i] > k) {
                 return {};
             }
