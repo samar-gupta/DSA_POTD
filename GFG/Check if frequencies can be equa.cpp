@@ -1,3 +1,54 @@
+//passed
+class Solution {
+  public:
+    bool sameFreq(string& s) {
+        // code here
+        // Step 1: Count frequency of each character in the string
+        unordered_map<char, int> mp;
+        for(char ch : s) {
+            mp[ch]++;
+        }
+       
+        // Step 2: Count how many characters have the same frequency
+        unordered_map<int, int> freqCount;
+        for(auto x : mp) {
+            freqCount[x.second]++;
+        }
+
+        // Case 1: All characters have the same frequency
+        if(freqCount.size() == 1)  
+            return true;
+
+        // Case 2: There are exactly two different frequencies
+        if(freqCount.size() == 2) {
+            auto it = freqCount.begin();
+            int freq1 = it->first;   // First frequency
+            int count1 = it->second; // Number of characters with freq1
+            it++;
+            int freq2 = it->first;   // Second frequency
+            int count2 = it->second; // Number of characters with freq2
+             
+            // Case 2a: One character occurs only once (frequency is 1)
+            // and it appears only once, so removing it would equalize frequencies
+            if((freq1 == 1 && count1 == 1) || (freq2 == 1 && count2 == 1))  
+                return true;
+
+            // Case 2b: Frequencies differ by 1, and the higher frequency occurs only once
+            if(abs(freq1 - freq2) == 1) {
+                if((freq1 > freq2 && count1 == 1) || (freq2 > freq1 && count2 == 1)) {
+                    return true;
+                }
+            }
+        }
+
+        // Case 3: More than two frequencies or conditions not satisfied
+        return false;
+    }
+};
+
+
+
+//testcase updated (failed testcases)
 // Approach: Count frequency of each character and analyze if at most one character removal can make all frequencies equal.
 // Time Complexity: O(n), where n is the length of the string `s`, due to frequency counting.
 // Space Complexity: O(1), since we only use a fixed-size array of 26 characters.
