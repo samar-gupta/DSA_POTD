@@ -2,7 +2,7 @@
 
 //Approach - Recursion
 //T.C : O(log(k))
-//S.C : O(log(k))) of system stack
+//S.C : O(log(k)) of system stack
 class Solution {
 public:
     char kthCharacter(long long k, vector<int>& operations) {
