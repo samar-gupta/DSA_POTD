@@ -1,7 +1,7 @@
 //Company Tags   : GOOGLE
 //Leetcode Link  : https://leetcode.com/problems/meeting-rooms-iii/description/?envType=daily-question&envId=2024-02-18
 
-//Approach-1 (Brute Force - Doing as said)
+//Approach-1 (Brute Force - Do as said)
 //T.C : O(mlogm +m*n) , where Let n = number of rooms, m =  number of meetings
 //S.C : O(n)
 class Solution {
@@ -57,9 +57,6 @@ public:
         return resultRoom;
     }
 };
-
-
-
 
 
 //Approach-2 (Use priority Queue to find the first available meeting room)
