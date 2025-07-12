@@ -1,7 +1,7 @@
 //Leetcode Link : https://leetcode.com/problems/the-earliest-and-latest-rounds-where-players-compete
 
 //Approach : (Recursion)
-//T.C : T(n) = n^2 * T(n/2) -> Homework for you. Comment in the video your solution
+//T.C : T(n) = n^2 * T(n/2) -> ...
 //S.C : No extra space taken (ignoring the system recursion space)
 class Solution {
 public:
