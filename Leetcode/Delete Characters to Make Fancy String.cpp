@@ -1,6 +1,6 @@
 //Leetcode Link : https://leetcode.com/problems/delete-characters-to-make-fancy-string/
 
-//Approach-1 :
+//Approach-1 : (Simple straight forward traversal)
 //T.C : O(n)
 //S.C : O(1)   //result output string not included 
 class Solution {
