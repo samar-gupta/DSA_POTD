@@ -11,7 +11,7 @@ public:
         int score = 0;
 
         string maxStr = (x > y) ? "ab" : "ba";
-        string minStr = (x < y) ? "ab" : "ba";
+        string minStr = (maxStr == "ab") ? "ba" : "ab"; //This is updated after the video was made as a new test case was added in Leetcode
 
         //First Pass
         string temp_first     = removeSubstring(s, maxStr);
@@ -61,7 +61,7 @@ public:
         int score = 0;
 
         string maxStr = (x > y) ? "ab" : "ba";
-        string minStr = (x < y) ? "ab" : "ba";
+        string minStr = (maxStr == "ab") ? "ba" : "ab"; //This is updated after the video was made as a new test case was added in Leetcode
 
         //First Pass
         string temp_first     = removeSubstring(s, maxStr);
