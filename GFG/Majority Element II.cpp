@@ -58,7 +58,7 @@ class Solution {
         // sort the elements of ans vector (there will be maximum 2 elements so no issue for the time complexity)
         sort(ans.begin(),ans.end());  
         // finally return the ans;
-        //if(ans.size()==0) return {-1};
+        // if(ans.size()==0) return {-1};
         return ans;
     }
 };
