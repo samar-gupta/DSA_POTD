@@ -36,7 +36,6 @@ public:
 };
 
 
-
 //Approach-2 (Memoizing to store subproblems result)
 //T.C : O(n*maxOr)
 //S.C : O(1)
@@ -77,4 +76,3 @@ public:
         return countSubsets(0, currOr, nums, maxOr, t);
     }
 };
-
