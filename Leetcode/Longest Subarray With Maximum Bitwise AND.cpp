@@ -1,6 +1,6 @@
 //Leetcode Link : https://leetcode.com/problems/longest-subarray-with-maximum-bitwise-and
 
-//Approach-(Simple Observation of AND property)
+//Approach - (Simple Observation of AND property)
 //T.C : O(n)
 //S.C : O(1)
 class Solution {
