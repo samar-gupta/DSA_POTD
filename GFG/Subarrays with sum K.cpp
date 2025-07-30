@@ -1,3 +1,6 @@
+//Approach-1 : Using hash map to store the frequency of prefix sums I've seen so far
+//T.C : O(n)
+//S.C : O(n)
 class Solution {
   public:
     int countSubarrays(vector<int> &arr, int k) {
