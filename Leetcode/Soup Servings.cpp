@@ -35,7 +35,7 @@ public:
     
     double soupServings(int n) {
         
-        if(n >= 5000)
+        if(n >= 5000)                 //as n becomes larger and larger, probability of A will be 0.999999 ~ 1, as A will reach 100 but B will never reach 100 as stated in question
             return 1.0;
         
         t.resize(n+1, vector<double>(n+1, -1.0));
