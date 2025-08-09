@@ -30,7 +30,7 @@ public:
 
 
 
-//Approach-3 (__builtin_popcount)
+//Approach-3 : (__builtin_popcount)
 //T.C : O(1)
 //S.C : O(1)
 class Solution {
@@ -40,5 +40,20 @@ public:
             return false;
         
         return __builtin_popcount(n) == 1;
+    }
+};
+
+
+//Approach-4 : (By constraint)
+//T.C : O(1)
+//S.C : O(1)
+//integer constant 1 << 30 (which is 2^30 as an int)
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n <= 0)
+            return false;
+        
+        return ((1 << 30) % n) == 0;
     }
 };
