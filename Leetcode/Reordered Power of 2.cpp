@@ -96,7 +96,7 @@ public:
 //S.C : O(1)
 class Solution {
 public:
-    int getVectorCountFormat(int n) {
+    int getCountFormat(int n) {
         int num = 0;
 
         //256
@@ -110,10 +110,10 @@ public:
     }
 
     bool reorderedPowerOf2(int n) {
-        int input = getVectorCountFormat(n);
+        int input = getCountFormat(n);
 
         for(int p = 0; p <= 29; p++) {
-            if(input == getVectorCountFormat(1 << p)) {
+            if(input == getCountFormat(1 << p)) {
                 return true;
             }
         }
