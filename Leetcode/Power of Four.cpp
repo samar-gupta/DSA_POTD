@@ -1,9 +1,6 @@
-/*
-      Company Tags                : Two Sigma
-      Leetcode Link               : https://leetcode.com/problems/power-of-four/
-*/
+//Company Tags  : Two Sigma
+//Leetcode Link : https://leetcode.com/problems/power-of-four/
 
-/******************************************************************* C++ ************************************************************************/
 //Approach-1 (Simplest for loop)
 //T.C : log(n) to base 4
 class Solution {
@@ -24,8 +21,6 @@ public:
 };
 
 
-
-
 //Approach-2 (Using Maths)
 //T.C : O(log(a)) -> pow(4, a),the exponentiation operation still requires logarithmic time with respect to the value of a.
 class Solution {
@@ -42,8 +37,6 @@ public:
         return false;
     }
 };
-
-
 
 
 //Approach-3 (Using Bit and Maths)
