@@ -1,3 +1,6 @@
+//Approach-1 : 
+//T.C : O(n)
+//S.C : O(1) //Auxiliary Space - O(n)
 class Solution {
   public:
     vector<vector<int>> insertInterval(vector<vector<int>> &intervals,                                       vector<int> &newInterval) {
