@@ -3,7 +3,7 @@
 //S.C : O(26) ~ O(1)
 class Solution {
   public:
-    string smallestWindow(string &s, string &p) {
+    string smallestWindow(string &s, string &t) {
         // code here
         int n = s.size();
         vector<int> f(26, 0); 
