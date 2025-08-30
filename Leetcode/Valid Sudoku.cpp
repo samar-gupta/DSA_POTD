@@ -57,7 +57,6 @@ public:
 
 
 //Approach-2 (One iteration using hashmap and indexing boxes)
-//see the diagrma (in the link above) to understand the indexing of the boxes
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
@@ -83,7 +82,6 @@ public:
 
 
 //Approach-3 (Assigning a number to each box)
-//see the diagrma (in the link above) to understand how I have numbered the boxes
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
@@ -96,7 +94,7 @@ public:
                 
                 int digit     = board[i][j] - '0' - 1; //(-1 to avoid overflow in index)
                 
-                //we have numbered 9 boxes of (3*3) as 0, 1, 2, 3, 4 ... 9 (see the diagram below)
+                //we have numbered 9 boxes of (3*3) as 0, 1, 2, 3, 4 ... 9 
                 int boxIndex  = (i/3)*3 + (j/3);
                 
                 if(row[i][digit] || col[j][digit] || box[boxIndex][digit]) return false;
