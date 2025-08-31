@@ -1,27 +1,25 @@
-//Approach-1 : 
+//Approach-1 : (Two-Pointers?)
+//T.C : O(n)
+//S.C : O(1)
 class Solution {
   public:
-    int maxWater(vector<int> &A) {
+    int maxWater(vector<int> &arr) {
         // code here
-        int len = A.size();
-        int left=0;
-        int right=len-1;
-        int ans =0;
+        int l = 0, r = arr.size() - 1;
+        int ans = 0;
 
-    while(left<right){
+        while (l < r) {
+            int hgt = min(arr[l], arr[r]);
+            int wdt = r - l;
+            ans = max(ans, hgt * wdt);
 
-        int tempwater=min(A[left],A[right])*(right-left);
-
-        ans=max(ans,tempwater);
-
-        if(A[left]<A[right])
-            left++;
-        else{
-            right--;
+            if (arr[l] <= arr[r]) {
+                l++;
+            } else {
+                r--;
+            }
         }
-    }
-    
-    return ans;      
+        return ans;
     }
 };
 
