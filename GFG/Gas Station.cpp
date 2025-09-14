@@ -1,4 +1,36 @@
 //Approach-1 : 
+//T.C : O(n)
+//S.C : O(1)
+class Solution {
+  public:
+    int startStation(vector<int> &gas, vector<int> &cost) {
+        //  code here
+        int x = 0, y = 0;
+        
+        for (int num : gas) x += num;
+        for (int num : cost) y += num;
+        
+        if (x < y) return -1; 
+        
+        int ans = 0, total = 0;
+        int n = gas.size();
+        
+        for (int i = 0; i < n; i++) {
+            total += gas[i] - cost[i];
+            
+            if (total < 0) {
+                ans = i + 1;   
+                total = 0;
+            }
+        }
+        
+        return ans;
+    }
+};
+
+
+//old
+//Approach- : 
 class Solution {
   public:
     int startStation(vector<int> &gas, vector<int> &cost) {
