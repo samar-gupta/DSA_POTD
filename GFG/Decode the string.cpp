@@ -1,3 +1,50 @@
+//Approach-1 : 
+class Solution {
+  public:
+    string decodedString(string &s) {
+        // code here
+        stack<char> st;
+        
+        for (char ch : s) {
+            if (ch != ']') st.push(ch);
+            else {
+                
+                string temp = "";
+                while (!st.empty() && st.top() != '[') {
+                    temp += st.top();
+                    st.pop();
+                }
+                
+                reverse(temp.begin(), temp.end());
+                st.pop();  //removing opening bracket '['
+                string num = "";
+                
+                while (!st.empty() && isdigit(st.top())) {
+                    num = st.top() + num;
+                    st.pop();
+                }
+                
+                int number = stoi(num);
+                string repeat = "";
+                for (int i = 0; i < number; i++) repeat += temp;
+                for (char c : repeat) st.push(c);
+            }
+        }
+        
+        string res = "";
+        while (!st.empty()) {
+            res += st.top();
+            st.pop();
+        }
+        
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
+
+
+
+//old
 class Solution {
   public:
     string decodedString(string &s) {
