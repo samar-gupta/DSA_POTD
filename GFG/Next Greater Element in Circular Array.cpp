@@ -51,3 +51,39 @@ public:
         return result;                          // Return filled results
     }
 };
+
+
+//updated
+//Approach-2 : 
+//T.C : O(n)
+//S.C : O(n)
+class Solution {
+  public:
+    vector<int> nextGreater(vector<int> &arr) {
+        // code here
+        int n = arr.size();
+        vector<int> result(n, -1);  // Initialize all positions with -1
+        stack<int> st;              // Stack to store indices
+        
+        // Traverse the array twice to handle circular nature
+        // First pass: 0 to n-1, Second pass: 0 to n-1 (total 2n iterations)
+        for (int i = 0; i < 2 * n; i++) {
+            int currentIndex = i % n;  // Get actual index in circular manner
+            
+            // While stack is not empty and current element is greater than 
+            // the element at the index stored at stack's top
+            while (!st.empty() && arr[st.top()] < arr[currentIndex]) {
+                int idx = st.top();
+                st.pop();
+                result[idx] = arr[currentIndex];  // Found next greater element
+            }
+            
+            // Only push to stack during first pass to avoid duplicates
+            if (i < n) {
+                st.push(currentIndex);
+            }
+        }
+        
+        return result;
+    }
+};
