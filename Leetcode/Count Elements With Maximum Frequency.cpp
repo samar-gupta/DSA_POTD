@@ -2,7 +2,7 @@
 
 //Approach-1 (Using 2 Pass)
 //T.C : O(n)
-//S.C : O(1)
+//S.C : O(1) ~ O(101)
 class Solution {
 public:
     int maxFrequencyElements(vector<int>& nums) {
