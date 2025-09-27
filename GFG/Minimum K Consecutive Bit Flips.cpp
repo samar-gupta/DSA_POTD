@@ -28,6 +28,8 @@ Approach :
        4. Continue until end.
        5. Return total flips.
 */
+//T.C : O(n) → each index processed once.
+//S.C : With queue: O(k) (storing flip-end indices). With optimized trick: O(1) extra
 class Solution {
   public:
     int kBitFlips(vector<int>& arr, int k) {
