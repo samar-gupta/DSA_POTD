@@ -1,3 +1,4 @@
+//Approach-1 :
 class Solution {
   public:
     vector<int> longestSubarray(vector<int>& arr, int x) {
