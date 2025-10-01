@@ -23,7 +23,6 @@ public:
 };
 
 
-
 //Approach-2 (Improvement on Approach-1)
 //T.C : O(log_numExchange_(numBottles))
 //S.C : O(1)
@@ -46,7 +45,6 @@ public:
         return consumed;
     }
 };
-
 
 
 //Approach-3 (Using maths)
