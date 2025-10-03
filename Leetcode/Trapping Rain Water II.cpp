@@ -64,7 +64,7 @@ public:
 
 
 /************************************************************ JAVA ************************************************************/
-//Approach (Using Heap - See video for full intuition and thought process)
+//Approach (Using Heap)
 //T.C : O(m*n log(m*n))
 //S.C : O(m*n)
 class Solution {
