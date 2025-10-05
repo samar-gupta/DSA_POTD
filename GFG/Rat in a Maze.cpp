@@ -1,5 +1,6 @@
-class Solution{
-    public:
+//Approach-1 : (DFS + Backtracking)
+class Solution {
+  public:
     void solve(int i,int j,vector<vector<int>> &m, int n, vector<string>&ans, string move, vector<vector<int>>&vis){
         if(i==n-1 && j==n-1){
             ans.push_back(move);
@@ -28,7 +29,8 @@ class Solution{
         
     }
     
-    vector<string> findPath(vector<vector<int>> &mat) {
+    vector<string> ratInMaze(vector<vector<int>>& mat) {
+        // code here
         vector<string> ans;
         int n=mat.size();
         vector<vector<int>> vis(n,vector<int>(n,0));
