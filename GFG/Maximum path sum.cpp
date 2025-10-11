@@ -1,3 +1,4 @@
+//Approach-1 : 
 class Solution {
   public:
     int solve(Node *root,int &ans){
