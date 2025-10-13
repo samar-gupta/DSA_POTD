@@ -1,0 +1,33 @@
+//Approach-1 :
+class Solution {
+  public:
+    unordered_map<Node*, int> dp;
+    int solve(Node* root) {
+        
+        if(root == NULL){
+            return 0;
+        }
+        if(dp[root]){
+            return dp[root];
+        }
+        int take = root->data;
+        
+        if(root->left){
+            take += solve(root->left->left);
+            take += solve(root->left->right);
+        }
+        if(root->right){
+            take += solve(root->right->right);
+            take += solve(root->right->left);
+        }
+        int skip = solve(root->left) + solve(root->right);
+        
+        return dp[root] = max(take,skip);
+    }
+    
+    // Function to return the maximum sum of non-adjacent nodes.
+    int getMaxSum(Node *root) {
+        // code here
+        return solve(root);
+    }
+};
