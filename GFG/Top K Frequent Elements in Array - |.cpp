@@ -1,8 +1,32 @@
+//Approach-1 : (Using unordered_map + Hashmap)
 class Solution {
   public:
-  
+    vector<int> topKFreq(vector<int> &arr, int k) {
+        // Code here
+        unordered_map <int,int> m;
+        for(auto i:arr) m[i]++;
+        
+        priority_queue <pair<int,int>> p;
+        for(auto i:m) p.push({i.second,i.first});
+
+        vector <int> ans;
+        for(int i = 0;i < k;i++){
+            ans.push_back(p.top().second);
+            p.pop();
+        }
+        
+        return ans;
+    }
+};
+
+
+//Approach-2 : (Using sorting)
+class Solution {
+  public:
     static bool comp(const pair<int, int> &a, const pair<int, int> &b) {
+
         if(a.second > b.second) {
+
             return true;
         }
         
@@ -12,9 +36,12 @@ class Solution {
         return false;
     }
     
-    vector<int> topK(vector<int>& nums, int k) {
+    vector<int> topKFreq(vector<int> &nums, int k) {
+        // Code here
         unordered_map<int, int> mp;
+
         for(auto i : nums) {
+
             mp[i]++;
         }
         
