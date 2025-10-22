@@ -1,3 +1,4 @@
+//Company Tags  : GOOGLE
 //Leetcode Link : https://leetcode.com/problems/maximum-frequency-of-an-element-after-performing-operations-i
 
 //Approach - Using Cumulative Sum of Frequencies and trying all possible targets in nums
@@ -36,6 +37,46 @@ public:
             int maxPossibleFreq = targetCount + min(needConversion, numOperations);
 
             result = max(result, maxPossibleFreq);
+        }
+
+        return result;
+    }
+};
+
+
+//Approach - Using Difference Array Technique
+//T.C : O(maxVal), maxVal = maximum element in nums + k
+//S.C : O(maxVal), maxVal = maximum element in nums + k
+class Solution {
+public:
+    int maxFrequency(vector<int>& nums, int k, int numOperations) {
+        int maxVal = *max_element(begin(nums), end(nums)) + k;
+
+        vector<int> diff(maxVal+2, 0);
+        unordered_map<int, int> freq;
+
+        for(int i = 0; i < nums.size(); i++) {
+            freq[nums[i]]++;
+
+            int l = max(nums[i]-k, 0);
+            int r = min(nums[i]+k, maxVal);
+
+            diff[l]++;
+            diff[r+1]--;
+        }
+
+
+        int result = 1;
+
+        for(int target = 0; target <= maxVal; target++) {
+            diff[target] += (target > 0 ? diff[target-1] : 0);
+
+            int targetFreq     = freq[target];
+            int needConversion = diff[target] - targetFreq;
+
+            int maxPossibleFreq = min(needConversion, numOperations);
+
+            result = max(result, targetFreq + maxPossibleFreq);
         }
 
         return result;
