@@ -1,3 +1,30 @@
+//Approach-1 : (Using priority_queue)
+//T.C : O(nLogK)
+//S.C : O(k)
+class Solution {
+  public:
+    void nearlySorted(vector<int>& arr, int k) {
+        // code here
+        priority_queue<int, vector<int>, greater<int>> minH;
+        
+        int idx = 0;
+        for(auto&i: arr){
+            minH.push(i);
+            if(minH.size()>k){
+                arr[idx++] = minH.top();
+                minH.pop();
+            }
+        }
+        while(!minH.empty()){
+            arr[idx++] = minH.top();
+                minH.pop();
+        }
+    }
+};
+
+
+
+//old
 class Solution {
   public:
     void nearlySorted(vector<int>& arr, int k) {
