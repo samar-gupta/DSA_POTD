@@ -1,9 +1,6 @@
-/*
-    Company Tags                : AMAZON
-    Leetcode Link               : https://leetcode.com/problems/number-of-laser-beams-in-a-bank/
-*/
+//Leetcode Link : https://leetcode.com/problems/number-of-laser-beams-in-a-bank/
+//Company Tags  : AMAZON
 
-/****************************************************** C++ ******************************************************/
 //Approach (Simple iterate and count)
 //T.C : O(m*n) - Total number of characters in all string
 //S.C : O(1)
@@ -12,21 +9,21 @@ public:
     int numberOfBeams(vector<string>& bank) {
         int n = bank.size();
         
-        int prev = 0;     //prevDeviceCount
-        int result = 0;
+        int prevDeviceCount = 0;
+        int result    = 0;
         
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i<n; i++) {
             
-            int curr = 0;                 //currDeviceCount
+            int currDeviceCount = 0;
             for(char &ch : bank[i]) {
-                if(ch == '1') curr++;
+                if(ch == '1') {
+                    currDeviceCount++;
+                }
             }
             
-            result += (prev * curr);
+            result += (prevDeviceCount * currDeviceCount);
             
-            if(curr != 0) {
-                prev = curr;
-            }
+            prevDeviceCount = currDeviceCount == 0 ? prevDeviceCount : currDeviceCount;
             
         }
         
