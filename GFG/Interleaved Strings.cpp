@@ -7,7 +7,7 @@
 */
 class Solution {
   public:
-    bool isInterleave(string &s1, string &s2, string &s3) {
+    bool isInterleave(string &A, string &B, string &C) {
         // code here
         int n = A.length();
         int m = B.length();
