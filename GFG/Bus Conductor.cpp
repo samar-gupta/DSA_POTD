@@ -2,7 +2,7 @@ class Solution {
   public:
     int findMoves(vector<int>& chairs, vector<int>& passengers) {
         // code here
-        int n = chairs.size()
+        int n = chairs.size();
         int ans = 0;
         sort(chairs.begin(), chairs.end());
         sort(passengers.begin(), passengers.end());
