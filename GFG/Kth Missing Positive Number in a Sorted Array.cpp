@@ -1,3 +1,41 @@
+//Approach:
+//T.C -> O( logn )  
+//S.C -> O(1)
+class Solution {
+  public:
+    int kthMissing(vector<int> &arr, int k) {
+        // code here
+        // Step 1: Initialize variables
+        int n = arr.size();        // Size of the array
+        int low = 0, high = n - 1; // Search range for binary search
+
+        // Step 2: Perform binary search
+        while (low <= high) {
+            int mid = (low + high) / 2;   // Find the middle index
+            int missing = arr[mid] - (mid + 1); // Calculate number of missing numbers up to arr[mid]
+            
+            if (missing < k) {
+                // If the number of missing numbers so far is less than k,
+                // it means the k-th missing number is to the right.
+                low = mid + 1;
+            } else {
+                // Otherwise, the k-th missing number is to the left or at mid.
+                high = mid - 1;
+            }
+        }
+
+        // Step 3: Return the k-th missing number
+        // After the loop, `high` points to the last position where the missing numbers are < k.
+        // The k-th missing number is `k + high + 1` because:
+        // - `k` is the target missing number count
+        // - `high + 1` gives the actual index offset in the missing sequence.
+        return k + high + 1;
+    }
+};
+
+
+
+//old
 class Solution {
   public:
     int kthMissing(vector<int> &arr, int k) {
