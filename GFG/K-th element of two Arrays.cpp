@@ -1,3 +1,74 @@
+//Approach:
+class Solution {
+  public:
+    int kthElement(vector<int> &a, vector<int> &b, int k) {
+        // code here
+        int n = a.size();
+        int m = b.size();
+        int low = min(a[0], b[0]), high = max(a[n-1], b[m-1]);
+        
+        while(low < high){
+            int mid = (low + high)/2;
+            
+            int x = upper_bound(a.begin(), a.end(), mid)-a.begin();
+            int y = upper_bound(b.begin(), b.end(), mid)-b.begin();
+            
+            if(x+y < k) low = mid+1;
+            else high = mid;
+        }
+        
+        return low;
+    }
+};
+
+
+//Approach:
+class Solution {
+public:
+    // Counts how many elements in arr are <= val
+    int helper(const vector<int>& arr, int val) {
+        int low = 0, high = arr.size() - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] <= val) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return low;  // Number of elements <= val
+    }
+
+    int kthElement(vector<int>& a, vector<int>& b, int k) {
+        // code here
+        int size_a = a.size();
+        int size_b = b.size();
+
+        // Handle edge cases: arrays might be empty
+        if (size_a == 0) return b[k - 1];
+        if (size_b == 0) return a[k - 1];
+
+        int low = min(a[0], b[0]);
+        int high = max(a[size_a - 1], b[size_b - 1]);
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int count = helper(a, mid) + helper(b, mid);
+
+            if (count >= k) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return low;  // low is the k-th smallest element
+    }
+};
+
+
+
+//old
 //Approach-1 : 
 class Solution {
   public:
