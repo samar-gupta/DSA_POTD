@@ -1,3 +1,43 @@
+//Approach:
+class Solution {
+  public:
+    Node* intersectPoint(Node* head1, Node* head2) {
+        //  Code Here
+        Node *curr1=head1,*curr2=head2;
+        int count1=0,count2=0;
+        //number of node in head1
+        while(curr1){
+            count1++;
+            curr1=curr1->next;
+        }
+        //number of node in head2
+        while(curr2){
+            count2++;
+            curr2=curr2->next;
+        }
+        curr1=head1,curr2=head2;
+        // node of head1 is more
+        while(count1>count2){
+           curr1=curr1->next;
+           count1--;
+        }
+        //node of head2 is more
+         while(count2>count1){
+           curr2=curr2->next;
+           count2--;
+        }
+        //balancing the curr position of both
+        while(curr1!=curr2){
+            curr1=curr1->next;
+            curr2=curr2->next;
+        }
+     
+        return curr1;
+    }
+};
+
+
+//old
 class Solution {
   public:
     // Function to find intersection point in Y shaped Linked Lists.
