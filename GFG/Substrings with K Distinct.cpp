@@ -104,3 +104,40 @@ public:
         return countAtMostK(s, k) - countAtMostK(s, k - 1);
     }
 };
+
+
+//Approach:
+class Solution {
+  public:
+    int atMostK(string& s, int k) {
+        int n = s.length();
+        int l = 0, r = 0, distinct = 0;
+        vector<int>freq(26, 0);
+        int ans = 0;
+        
+        while(r < n) {
+            if(freq[s[r]-'a'] == 0) {
+                distinct++;
+            }
+            freq[s[r]-'a']++;
+            
+            while(distinct > k) {
+                freq[s[l]-'a']--;
+                if(freq[s[l]-'a'] == 0) {
+                    distinct--;
+                }
+                l++;
+            }
+            
+            ans += r-l+1;
+            r++;
+        }
+        
+        return ans;
+    }
+    
+    int countSubstr(string& s, int k) {
+        // code here
+        return atMostK(s, k) - atMostK(s, k-1);      //AtMostk - AtMostk-1 = exactly k
+    }
+};
