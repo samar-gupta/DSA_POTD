@@ -1,4 +1,57 @@
-//updated
+//Approach-1:
+//Time->O(n*k) and Space->O(k) -------> Give TLE
+class Solution {
+  public:
+    vector<int> maxOfSubarrays(vector<int>& arr, int k) {
+        // code here
+        vector<int>ans;
+        int n=arr.size();
+        for(int i=0;i<=n-k;i++){
+            int maxi=0;
+            for(int j=0;j<k;j++){
+                maxi=max(maxi,arr[j+i]);
+            }
+            ans.push_back(maxi);
+        }
+        return ans;
+    }
+};
+
+
+//Approach-2 : 
+//Time->O(n*log(k)) and Space->O(k)
+class Solution {
+  public:
+    // Function to find maximum of each subarray of size k.
+    vector<int> maxOfSubarrays(vector<int>& arr, int k) {
+        // code here
+        int n = arr.size();
+        
+        vector<int>ans;
+        priority_queue<pair<int,int>>pq;
+
+        for(int i=0;i<k;i++) {
+           pq.push({arr[i],i});
+        }
+
+        ans.push_back(pq.top().first);
+
+        for(int i=k;i<n;i++) {
+           pq.push({arr[i],i});
+
+           while(i-pq.top().second>=k)
+               pq.pop();
+
+           ans.push_back(pq.top().first);
+       }
+
+       return ans;
+    }
+};
+
+
+//Approach-3 :
+//Time->O(n) and Space->O(k)
 class Solution {
   public:
     vector<int> maxOfSubarrays(vector<int>& arr, int k) {
@@ -25,36 +78,5 @@ class Solution {
         }
 
         return res;
-    }
-};
-
-
-//old
-class Solution {
-  public:
-    // Function to find maximum of each subarray of size k.
-    vector<int> max_of_subarrays(int k, vector<int> &arr) {
-        // your code here
-        int n = arr.size();
-        
-        vector<int>ans;
-        priority_queue<pair<int,int>>pq;
-
-        for(int i=0;i<k;i++) {
-           pq.push({arr[i],i});
-        }
-
-        ans.push_back(pq.top().first);
-
-        for(int i=k;i<n;i++) {
-           pq.push({arr[i],i});
-
-           while(i-pq.top().second>=k)
-               pq.pop();
-
-           ans.push_back(pq.top().first);
-       }
-
-       return ans;
     }
 };
