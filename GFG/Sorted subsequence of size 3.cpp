@@ -1,3 +1,6 @@
+// Function to find three numbers in the given array
+// such that arr[smaller[i]] < arr[i] < arr[greater[i]]
+
 class Solution {
   public:
     vector<int> find3Numbers(vector<int> &arr) {
