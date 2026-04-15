@@ -1,0 +1,23 @@
+//Leetcode Link : https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array/description/
+
+//Approach (Simple simulation)
+//T.C : O(n*L), L = average length of all the words
+//S.C : O(1)
+class Solution {
+public:
+    int closestTarget(vector<string>& words, string target, int startIndex) {
+        int n      = words.size();
+        int result = INT_MAX;
+
+        for (int i = 0; i < n; ++i) {
+            if (words[i] == target) {
+                int straightDist  = abs(i - startIndex);
+                int circularDist  = n-straightDist;
+
+                result = min({result, straightDist, circularDist});
+            }
+        }
+
+        return result == INT_MAX ? -1 : result;
+    }
+};
