@@ -1,3 +1,4 @@
+#define ll long long int
 class Solution {
   public:
     long long pairAndSum(vector<int> &arr) {
